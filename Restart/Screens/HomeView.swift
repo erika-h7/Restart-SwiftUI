@@ -16,18 +16,56 @@ struct HomeView: View {
     //MARK: - BODY
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Home")
-                .font(.largeTitle)
+        ZStack {
+            Color("ColorPeach")
+                .ignoresSafeArea(.all, edges: .all)
             
-            Button(action: {
-                isOnboardingViewActive = true
+            VStack(spacing: 20) {
+                //MARK: - HEADER
                 
-            }) {
-                Text("Restart")
+                Spacer()
+                
+                ZStack {
+                    CircleGroupView(ShapeColor: .gray, ShapeOpacity: 0.2)
+                    
+                    Image("character-2")
+                        .resizable()
+                        .scaledToFit()
+                    .padding()
+                }
+                
+                
+                //MARK: - CENTER
+                
+                Text("The time that leads to mastery is dependent on the intensity of our focus.")
+                    .font(.title3)
+                    .fontWeight(.light)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                
+                
+                //MARK: - FOOTER
+                
+                Spacer()
+                
+                Button(action: {
+                    isOnboardingViewActive = true
+                }) {
+                    Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                        .imageScale(.large)
+                    
+                    Text("Restart")
+                        .font(.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
+                } //: BUTTON
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .controlSize(.large)
+
             }
-        }
-    } //: VSTACK
+        } //: VSTACK
+    }
 }
 
 
