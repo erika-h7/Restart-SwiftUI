@@ -91,7 +91,7 @@ struct OnboardingView: View {
                             .frame(width: 80)
                         
                         Spacer()
-                    }
+                    } //: HSTACK
                     
                     // 4. CIRCLE (DRAGGABLE)
                     
@@ -104,7 +104,7 @@ struct OnboardingView: View {
                                 .padding(8)
                             Image(systemName: "chevron.right.2")
                                 .font(.system(size: 24, weight: .bold))
-                        }
+                        } //: ZSTACK
                         .foregroundColor(.white)
                         .frame(width: 80, height: 80, alignment: .center)
                         .offset(x: buttonOffset)
@@ -115,6 +115,9 @@ struct OnboardingView: View {
                                         buttonWidth - 80 {
                                         buttonOffset = gesture.translation.width
                                     }
+                                }
+                                .onEnded { _ in
+                                    buttonOffset = 0
                                 }
                         ) //: GESTURE
                         
